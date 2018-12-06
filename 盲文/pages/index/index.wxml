@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <button type='default' bindtouchstart='startrecorderHandel' bindtouchend="sendrecorderHandel" bindtap="enen">开始录音</button>
+<view>
+  你说的话是:
+  <view>
+    {{msg}}
+  </view>
+</view>
+<view class="insert">
+    <view class="ii">你输入的是：{{inputValue}}</view>
+    <input  bindinput="bindKeyInput" placeholder="keke"/>
+</view>
+
+  <view class='selection'>
+    <image src='{{tempFilePaths}}' class='img' mode="aspectFit"></image>
+    <view class='btns'>
+      <button bindtap='chooseimage'>获取图片</button>
+      <button bindtap='identifyimage' >识别图片</button>
+     <button bindtap='concon' >转换成盲文</button> 
+      <button bindtap='sendsend'>无敌</button>
+    </view>
+  </view>
+
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
+
+
+
+
